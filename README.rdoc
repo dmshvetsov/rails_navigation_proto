@@ -1,3 +1,12 @@
+= M26
+
+Classic navigation
+
+* there is page and content
+* a page can has many pages
+* a page can has many content
+* pages and content has fields: order, slug, etc 
+
 == README
 
 Do not commit to the master branch. Use separate branch for each experiment.
