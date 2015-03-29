@@ -152,9 +152,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_list
+  acts_as_list (= 0.6.0)
   byebug
-  closure_tree
+  closure_tree (= 5.2.0)
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
