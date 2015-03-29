@@ -6,6 +6,8 @@ Classic navigation
 * a section can has many sections
 * a section can has many content
 * sections and content has fields: order, slug, etc 
+* root sections determines locale
+* root sections it is home pages for concrete locales
 
 == README
 
