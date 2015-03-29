@@ -1,0 +1,2 @@
+class Article < ContentBase
+end

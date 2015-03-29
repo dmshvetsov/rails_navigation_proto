@@ -6,6 +6,7 @@
 # SectionBase it's abstract model to build concrete models to store pages structure of an app.
 # Sections can be becomes tree.
 # Sections can be ordered.
+# Models that inherited from ContentBase should have columns title, slug, position and parent_id
 #
 class SectionBase < ActiveRecord::Base
   self.abstract_class = true
