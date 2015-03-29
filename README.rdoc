@@ -2,10 +2,10 @@
 
 Classic navigation
 
-* there is page and content
-* a page can has many pages
-* a page can has many content
-* pages and content has fields: order, slug, etc 
+* there is section and content
+* a section can has many sections
+* a section can has many content
+* sections and content has fields: order, slug, etc 
 
 == README
 
