@@ -16,6 +16,13 @@ class SectionBase < ActiveRecord::Base
     subclass.class_exec do
       has_closure_tree
       acts_as_list scope: :parent
+      ContentBase.subclasses.each do |content_class|
+        has_many content_class.table_name.to_sym
+      end
     end
+  end
+
+  def content
+    self.send(content_model.pluralize)
   end
 end
