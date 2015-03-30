@@ -14,6 +14,7 @@ class ContentBase < ActiveRecord::Base
     super
     subclass.class_exec do
       acts_as_list
+      belongs_to :section
     end
   end
 end

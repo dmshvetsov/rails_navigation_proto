@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Catalog Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>Body</th>
+      <th>Price</th>
+      <th>Position</th>
+      <th>Section</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @catalog_items.each do |catalog_item| %>
+      <tr>
+        <td><%= catalog_item.title %></td>
+        <td><%= catalog_item.slug %></td>
+        <td><%= catalog_item.body %></td>
+        <td><%= catalog_item.price %></td>
+        <td><%= catalog_item.position %></td>
+        <td><%= catalog_item.section %></td>
+        <td><%= link_to 'Show', catalog_item %></td>
+        <td><%= link_to 'Edit', edit_catalog_item_path(catalog_item) %></td>
+        <td><%= link_to 'Destroy', catalog_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Catalog item', new_catalog_item_path %>

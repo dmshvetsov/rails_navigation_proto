@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330110741) do
+ActiveRecord::Schema.define(version: 20150330123858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 20150330110741) do
   end
 
   add_index "articles", ["section_id"], name: "index_articles_on_section_id", using: :btree
+
+  create_table "catalog_items", force: :cascade do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "body"
+    t.integer  "price"
+    t.integer  "position"
+    t.integer  "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "catalog_items", ["section_id"], name: "index_catalog_items_on_section_id", using: :btree
 
   create_table "section_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id",   null: false
@@ -48,4 +61,5 @@ ActiveRecord::Schema.define(version: 20150330110741) do
   end
 
   add_foreign_key "articles", "sections"
+  add_foreign_key "catalog_items", "sections"
 end

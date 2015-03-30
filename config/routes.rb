@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :catalog_items
   resources :articles
   resources :sections
   # The priority is based upon order of creation: first created -> highest priority.

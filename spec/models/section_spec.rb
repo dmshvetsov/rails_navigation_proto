@@ -22,11 +22,23 @@ RSpec.describe Section, type: :model do
 
     it 'has many content' do
       # TODO: make polymorphic association
-      section = Section.create(title: 'Box', slug: 'box', content_model: 'articles')
+      section = Section.create(title: 'Box', slug: 'box', content_model: 'article')
       3.times do
         section.content.create(title: 'Sample article')
       end
       expect(section.content.size).to eq 3
+    end
+
+    it 'has many content of content_model' do
+      section = Section.create(title: 'Box', slug: 'box', content_model: 'article')
+      section.content.create(title: 'One more article')
+      expect(section.content.first).to be_an Article
+
+      section.content_model = 'catalog_item'
+      expect(section.content.size).to eq 0
+
+      section.content.create(title: 'One more product')
+      expect(section.content.first).to be_an CatalogItem
     end
   end
 end
