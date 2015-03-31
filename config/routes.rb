@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  root 'pages#main'
+
   resources :catalog_items
   resources :articles
   resources :sections
