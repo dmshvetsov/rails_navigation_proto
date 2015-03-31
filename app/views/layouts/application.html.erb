@@ -8,7 +8,14 @@
 </head>
 <body>
 
-<%= yield %>
+<%= render 'layouts/admin_panel' %>
+<hr />
+<div class="navigation">
+  <%= render_navigation &main_menu %>
+</div>
+<div class="content">
+  <%= yield %>
+</div>
 
 </body>
 </html>
