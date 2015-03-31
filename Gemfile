@@ -24,6 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Experiment specific gems
 gem 'acts_as_list', '0.6.0'
 gem 'closure_tree', '5.2.0'
+gem 'simple-navigation', '3.14.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
