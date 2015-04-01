@@ -23,6 +23,6 @@ class SectionBase < ActiveRecord::Base
   end
 
   def content
-    self.send(content_model.pluralize)
+    (content_model.present?) ? self.send(content_model.tableize) : []
   end
 end

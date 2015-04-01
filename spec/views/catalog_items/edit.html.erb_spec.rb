@@ -27,7 +27,7 @@ RSpec.describe "catalog_items/edit", type: :view do
 
       assert_select "input#catalog_item_position[name=?]", "catalog_item[position]"
 
-      assert_select "input#catalog_item_section_id[name=?]", "catalog_item[section_id]"
+      assert_select "select#catalog_item_section_id[name=?]", "catalog_item[section_id]"
     end
   end
 end

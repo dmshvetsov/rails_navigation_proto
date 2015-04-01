@@ -13,7 +13,12 @@
 
   <div class="field">
     <%= f.label :parent_id %><br>
-    <%= f.collection_select :parent_id, f.object.class.all, :id, :title %>
+    <%= f.collection_select :parent_id, f.object.class.all, :id, :title, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= ContentBase.subclasses.join(', ') %>
+    <%= f.label :content_model %><br>
+    <%= f.select :content_model, ContentBase.subclasses.collect { |model_string| [model_string, model_string] } %>
   </div>
   <div class="field">
     <%= f.label :title %><br>

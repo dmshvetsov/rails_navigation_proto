@@ -18,3 +18,9 @@ class ContentBase < ActiveRecord::Base
     end
   end
 end
+
+# Require all content models that inherets from ContetnBase
+Dir[Rails.root.join('app', 'models', 'content', '*.rb')].each do |content_model|
+  require_dependency content_model
+end
+

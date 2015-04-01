@@ -21,7 +21,6 @@ RSpec.describe Section, type: :model do
     it { is_expected.to respond_to :content }
 
     it 'has many content' do
-      # TODO: make polymorphic association
       section = Section.create(title: 'Box', slug: 'box', content_model: 'article')
       3.times do
         section.content.create(title: 'Sample article')
@@ -39,6 +38,13 @@ RSpec.describe Section, type: :model do
 
       section.content.create(title: 'One more product')
       expect(section.content.first).to be_an CatalogItem
+    end
+
+    context 'without content_model' do
+      it 'return empty array' do
+        section = Section.create(title: 'Box', slug: 'box', content_model: nil)
+        expect(section.content).to eq []
+      end
     end
   end
 end
