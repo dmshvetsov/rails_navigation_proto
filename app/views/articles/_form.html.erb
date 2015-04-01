@@ -27,6 +27,10 @@
     <%= f.label :position %><br>
     <%= f.number_field :position %>
   </div>
+  <div class="field">
+    <%= f.label :section_id %><br>
+    <%= f.collection_select :section_id, Section.all, :id, :title %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
