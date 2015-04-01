@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<h1>
+  <%= @section.title %>
+</h1>
+
 <p>
   <strong>Parent:</strong>
   <%= @section.parent_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @section.title %>
 </p>
 
 <p>
@@ -25,9 +24,13 @@
 
 <hr />
 
+<h2>
+  Content
+</h2>
+
 <% @section.content.each do |content| %>
   <p>
-    <%= content.title %>
+    <%= link_to content.title, url_for(content) %>
   </p>
 <% end %>
 

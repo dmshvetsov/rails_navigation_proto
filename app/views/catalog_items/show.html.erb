@@ -1,34 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @catalog_item.title %>
-</p>
+</h1>
 
 <p>
-  <strong>Slug:</strong>
-  <%= @catalog_item.slug %>
-</p>
-
-<p>
-  <strong>Body:</strong>
+  <strong>Description:</strong>
   <%= @catalog_item.body %>
 </p>
 
 <p>
   <strong>Price:</strong>
-  <%= @catalog_item.price %>
+  <%= number_to_currency @catalog_item.price %>
 </p>
 
-<p>
-  <strong>Position:</strong>
-  <%= @catalog_item.position %>
-</p>
-
-<p>
-  <strong>Section:</strong>
-  <%= @catalog_item.section %>
-</p>
 
 <%= link_to 'Edit', edit_catalog_item_path(@catalog_item) %> |
-<%= link_to 'Back', catalog_items_path %>
+<%= link_to 'Catalog Items', catalog_items_path %>
