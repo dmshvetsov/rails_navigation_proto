@@ -47,5 +47,8 @@ group :development, :test do
 
   # Testring frameworks
   gem 'rspec-rails', '3.2.1'
+
+  # Deployment
+  gem 'capistrano-rails', '1.1.2'
 end
 
