@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-# server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
+server '128.199.167.14', user: 'root', roles: %w{app db web}
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
@@ -31,7 +31,9 @@
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-
+set :deploy_to, "/var/www/#{fetch :application}"
+set :rvm_type, :auto
+set :rvm_ruby_version, "ruby-2.1.3@#{fetch :application}"
 
 # Custom SSH Options
 # ==================
@@ -42,9 +44,9 @@
 # Global options
 # --------------
 #  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
+#    keys: %w(/home/shvetsovdm/.ssh/id_rsa),
 #    forward_agent: false,
-#    auth_methods: %w(password)
+#    auth_methods: %w(key)
 #  }
 #
 # The server-based syntax can be used to override options:
@@ -59,3 +61,17 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
+namespace :rvm do
+  desc 'create gemset with application name'
+  task :gemset_create do
+    on roles(:all) do
+      unless test "test -d #{fetch(:rvm_path)}/gems/#{fetch(:rvm_ruby_version)}"
+        execute :rvm, :gemset, :create, fetch(:application)
+      end
+    end
+  end
+
+  after :hook, :gemset_create
+end
+

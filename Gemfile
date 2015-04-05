@@ -50,5 +50,7 @@ group :development, :test do
 
   # Deployment
   gem 'capistrano-rails', '1.1.2'
+  gem 'capistrano-unicorn-nginx', '3.3.2'
+  gem 'capistrano-rvm', '0.1.2'
 end
 
