@@ -57,6 +57,8 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano-safe-deploy-to (1.1.1)
+      capistrano (>= 3.0)
     capistrano-unicorn-nginx (3.3.2)
       capistrano (>= 3.1)
       sshkit (>= 1.2.0)
@@ -200,6 +202,7 @@ DEPENDENCIES
   byebug
   capistrano-rails (= 1.1.2)
   capistrano-rvm (= 0.1.2)
+  capistrano-safe-deploy-to (= 1.1.1)
   capistrano-unicorn-nginx (= 3.3.2)
   closure_tree (= 5.2.0)
   coffee-rails (~> 4.1.0)

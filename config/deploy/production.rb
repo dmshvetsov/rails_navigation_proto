@@ -1,27 +1,6 @@
-# server-based syntax
-# ======================
-# Defines a single server with a list of roles and multiple properties.
-# You can define all roles on a single server, or split them:
+set :user, 'deploy'
 
-server '128.199.167.14', user: 'rails', roles: %w{app db web}
-# server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
-# server 'db.example.com', user: 'deploy', roles: %w{db}
-
-
-
-# role-based syntax
-# ==================
-
-# Defines a role with one or multiple servers. The primary server in each
-# group is considered to be the first unless any  hosts have the primary
-# property set. Specify the username and a domain or IP for the server.
-# Don't use `:all`, it's a meta role.
-
-# role :app, %w{deploy@example.com}, my_property: :my_value
-# role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
-# role :db,  %w{deploy@example.com}
-
-
+server '128.199.167.14', user: fetch(:user), roles: %w{app db web}
 
 # Configuration
 # =============
@@ -31,7 +10,7 @@ server '128.199.167.14', user: 'rails', roles: %w{app db web}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-set :deploy_to, "/var/www/#{fetch :application}"
+set :deploy_to, "/home/#{fetch :user}/apps/#{fetch :application}"
 set :rvm_type, :auto
 set :rvm_ruby_version, "ruby-2.1.3@#{fetch :application}"
 
@@ -46,7 +25,7 @@ set :rvm_ruby_version, "ruby-2.1.3@#{fetch :application}"
 #  set :ssh_options, {
 #    keys: %w(/home/shvetsovdm/.ssh/id_rsa),
 #    forward_agent: false,
-#    auth_methods: %w(key)
+#    auth_methods: %w(password)
 #  }
 #
 # The server-based syntax can be used to override options:

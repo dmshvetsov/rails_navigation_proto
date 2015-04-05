@@ -10,6 +10,9 @@ require 'capistrano/rails'
 # Nginx Unicorn
 require 'capistrano/unicorn_nginx'
 
+# Dir creator and permisions ruler
+require 'capistrano/safe_deploy_to'
+
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
