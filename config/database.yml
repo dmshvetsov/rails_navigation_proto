@@ -83,5 +83,5 @@ production:
   encoding: utf8
   database: feror_navigation_proto
   pool: 5
-  username: root
-  password: 
+  username: rails
+  password: <%= ENV['RAILS_DB_PASSWORD'] %>
