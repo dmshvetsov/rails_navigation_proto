@@ -79,7 +79,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: feror_navigation_proto_production
-  username: feror_navigation_proto
-  password: <%= ENV['FEROR_NAVIGATION_PROTO_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  database: feror_navigation_proto
+  pool: 5
+  username: root
+  password: 
