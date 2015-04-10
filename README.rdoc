@@ -1,3 +1,13 @@
+= A10
+
+plus Page for all experiment:
+
+* for each content we create page (concrete_content has_one page)
+* when new content created page creates for the content automaticaly
+
+
 == README
 
 Do not commit to the master branch. Use separate branch for each experiment.
+
+
