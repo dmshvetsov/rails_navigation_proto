@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410132645) do
+ActiveRecord::Schema.define(version: 20150410135012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,13 @@ ActiveRecord::Schema.define(version: 20150410132645) do
     t.string   "slug"
     t.integer  "parent_id"
     t.integer  "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "content_id"
+    t.string   "content_type"
   end
+
+  add_index "pages", ["content_type", "content_id"], name: "index_pages_on_content_type_and_content_id", using: :btree
 
   create_table "sections", force: :cascade do |t|
     t.string   "description"

@@ -1,2 +1,2 @@
-class Section < ActiveRecord::Base
+class Section < ContentBase
 end
