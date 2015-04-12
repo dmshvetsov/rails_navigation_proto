@@ -5,4 +5,6 @@ class Page < ActiveRecord::Base
 
   belongs_to :content, polymorphic: true
 
+  validates :title, :slug, presence: true
+
 end

@@ -24,11 +24,11 @@ RSpec.describe SectionsController, type: :controller do
   # Section. As you add validations to Section, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { description: 'Main section' }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    skip("There is no invalid attributes for the section model")
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,14 @@ RSpec.describe SectionsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { description: 'No description' }
       }
 
       it "updates the requested section" do
         section = Section.create! valid_attributes
         put :update, {:id => section.to_param, :section => new_attributes}, valid_session
         section.reload
-        skip("Add assertions for updated state")
+        expect(section.description).to eq 'No description'
       end
 
       it "assigns the requested section as @section" do
