@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :parent_id %><br>
-    <%= f.number_field :parent_id %>
+    <%= f.collection_select :parent_id, f.object.class.all, :id, :title, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :position %><br>
