@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<%= link_to Page.model_name.human.pluralize, pages_path %>
+<%= link_to Section.model_name.human.pluralize, sections_path %>
+
 <%= yield %>
 
 </body>
